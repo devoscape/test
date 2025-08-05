@@ -1,0 +1,41 @@
+name: Try Manual Test Workflow
+
+on:
+  push:
+    paths:
+      - '.github/workflows/test.yml'
+
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment to deploy'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+        default: 'dev'
+      action:
+        description: "Action to perform"
+        required: true
+        type: choice
+        options:
+          - plan
+          - apply
+          - destroy
+      auto_approve:
+        description: "Auto approve"
+        type: boolean
+        default: false
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Test"
