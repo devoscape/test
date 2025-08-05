@@ -3,7 +3,7 @@ name: Try Manual Test Workflow
 on:
   push:
     paths:
-      - '.github/workflows/test.yml'
+      - '.github/workflows/try.yml'
 
   workflow_dispatch:
     inputs:
