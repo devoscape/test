@@ -1,6 +1,10 @@
 name: Manual Test Workflow
 
 on:
+  push:
+    paths:
+      - '.github/workflows/test.yml'
+
   workflow_dispatch:
     inputs:
       environment:
