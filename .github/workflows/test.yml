@@ -12,7 +12,14 @@ on:
           - staging
           - prod
         default: 'dev'
-
+      action:
+        description: "Action to perform"
+        required: true
+        type: choice
+        options:
+          - plan
+          - apply
+          - destroy
 jobs:
   run-tests:
     runs-on: ubuntu-latest
