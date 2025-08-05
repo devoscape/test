@@ -2,6 +2,16 @@ name: Manual Test Workflow
 
 on:
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'environment to deploy'
+        required: true
+        type: choice
+        options:
+          - dev
+          - staging
+          - prod
+        default: 'dev'
 
 jobs:
   run-tests:
