@@ -20,6 +20,10 @@ on:
           - plan
           - apply
           - destroy
+      auto_approve:
+        description: "Auto approve"
+        type: boolean
+        default: false
 jobs:
   run-tests:
     runs-on: ubuntu-latest
