@@ -1,0 +1,119 @@
+name: 🐞 Frontend Bug Report
+description: Report a UI/UX issue in the Web or Desktop application
+title: "[BUG]: "
+labels: ["type:bug", "area:frontend"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🎨 DevoPay Frontend Bug Report
+        Use this template for UI glitches, responsiveness issues, or interaction bugs.
+        *For calculation/math errors, please use the Calculation Bug template.*
+
+  - type: dropdown
+    id: application
+    attributes:
+      label: Affected Application
+      description: Which part of the DevoPay ecosystem is broken?
+      options:
+        - Web Portal (Next.js)
+        - Desktop App (Electron)
+        - Shared UI Component Library (@devopay/components)
+        - Employee Self-Service Mobile (Future)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment
+      options:
+        - Production
+        - Staging
+        - Local Development
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component_area
+    attributes:
+      label: Feature Area
+      description: Where is the UI issue occurring?
+      options:
+        - Attendance Dashboard
+        - Salary Slip View
+        - Employee Profile Management
+        - Gate Pass Workflow
+        - Settings & Configuration
+        - Authentication (Login/Register)
+        - Navigation / Sidebar
+        - Forms & Input Validation
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: browsers_platforms
+    attributes:
+      label: Platforms / Browsers Tested
+      description: Where did you see this bug?
+      options:
+        - label: Chrome
+        - label: Firefox
+        - label: Safari
+        - label: Windows Desktop (Electron)
+        - label: macOS Desktop (Electron)
+        - label: Mobile Web
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear and concise description of the UI bug.
+      placeholder: e.g., The "Generate Report" button is hidden on mobile screens.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected Behavior
+      placeholder: The button should be sticky at the bottom of the mobile view.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Open the Desktop App
+        2. Go to 'Attendance'
+        3. Resize window to minimum width
+        4. Observe the overlapping text
+    validations:
+      required: true
+
+  - type: textarea
+    id: console-logs
+    attributes:
+      label: Browser/Electron Console Logs
+      description: Please paste logs from the DevTools console.
+      render: javascript
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Video
+      description: Drag and drop your visual evidence here.
+
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Visual Impact
+      options:
+        - Critical - UI is unusable
+        - High - Major element missing/broken
+        - Medium - Visual glitch / overlapping text
+        - Low - Minor alignment/styling issue
+    validations:
+      required: true
