@@ -1,75 +1,96 @@
-name: 🐞 Frontend Bug Report
-description: Report a UI/UX issue in the Web or Desktop application
+name: 🐞 Bug Report
+description: Report an issue with the frontend user interface
 title: "[BUG]: "
-labels: ["type:bug", "area:frontend"]
+labels: ["type:bug", "area: frontend"]
 body:
   - type: markdown
     attributes:
       value: |
-        # 🎨 DevoPay Frontend Bug Report
-        Use this template for UI glitches, responsiveness issues, or interaction bugs.
-        *For calculation/math errors, please use the Calculation Bug template.*
-
-  - type: dropdown
-    id: application
-    attributes:
-      label: Affected Application
-      description: Which part of the DevoPay ecosystem is broken?
-      options:
-        - Web Portal (Next.js)
-        - Desktop App (Electron)
-        - Shared UI Component Library (@devopay/components)
-        - Employee Self-Service Mobile (Future)
-    validations:
-      required: true
+        # Frontend Bug Report
+        Thank you for taking the time to report an issue with our frontend applications.
+        Please fill out the information below to help us diagnose and fix the problem.
 
   - type: dropdown
     id: environment
     attributes:
       label: Environment
+      description: Where did you encounter this issue?
       options:
         - Production
         - Staging
-        - Local Development
+        - Development
+        - Local
     validations:
       required: true
 
   - type: dropdown
-    id: component_area
+    id: application
     attributes:
-      label: Feature Area
-      description: Where is the UI issue occurring?
+      label: Affected Application
+      description: Which application is affected by this bug?
       options:
-        - Attendance Dashboard
-        - Salary Slip View
-        - Employee Profile Management
-        - Gate Pass Workflow
-        - Settings & Configuration
-        - Authentication (Login/Register)
-        - Navigation / Sidebar
-        - Forms & Input Validation
+        - Storefront Web Application
+        - Admin Dashboard
+        - Mobile Application
+        - Shared Component Library
+        - Multiple Applications
     validations:
       required: true
 
-  - type: checkboxes
-    id: browsers_platforms
+  - type: dropdown
+    id: frontend_component
     attributes:
-      label: Platforms / Browsers Tested
-      description: Where did you see this bug?
+      label: Frontend Component
+      description: Which frontend component is affected?
       options:
-        - label: Chrome
-        - label: Firefox
-        - label: Safari
-        - label: Windows Desktop (Electron)
-        - label: macOS Desktop (Electron)
-        - label: Mobile Web
+        - Product Listing
+        - Product Detail Page
+        - Shopping Cart
+        - Checkout Flow
+        - User Account/Profile
+        - Authentication (Login/Register)
+        - Search Interface
+        - Product Filters
+        - Payment Form
+        - Order History
+        - Wish List
+        - Navigation/Menu
+        - Footer
+        - Mobile Responsiveness
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: Browsers
+      description: Which browsers exhibit this issue?
+      multiple: true
+      options:
+        - Chrome
+        - Firefox
+        - Safari
+        - Edge
+        - Opera
+        - Mobile Chrome
+        - Mobile Safari
+        - Mobile Firefox
+        - Other
+
+  - type: input
+    id: device
+    attributes:
+      label: Device
+      description: What device are you using?
+      placeholder: e.g., Desktop, iPhone 13, Samsung Galaxy S22
 
   - type: textarea
     id: what-happened
     attributes:
       label: What happened?
-      description: A clear and concise description of the UI bug.
-      placeholder: e.g., The "Generate Report" button is hidden on mobile screens.
+      description: Describe the issue you encountered
+      placeholder: A clear and concise description of what the bug is.
     validations:
       required: true
 
@@ -77,7 +98,8 @@ body:
     id: expected-behavior
     attributes:
       label: Expected Behavior
-      placeholder: The button should be sticky at the bottom of the mobile view.
+      description: What did you expect to happen?
+      placeholder: A clear and concise description of what you expected to happen.
     validations:
       required: true
 
@@ -85,35 +107,51 @@ body:
     id: reproduction
     attributes:
       label: Steps to Reproduce
+      description: How can we reproduce this issue?
       placeholder: |
-        1. Open the Desktop App
-        2. Go to 'Attendance'
-        3. Resize window to minimum width
-        4. Observe the overlapping text
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
     validations:
       required: true
 
-  - type: textarea
-    id: console-logs
+  - type: input
+    id: url
     attributes:
-      label: Browser/Electron Console Logs
-      description: Please paste logs from the DevTools console.
-      render: javascript
+      label: URL
+      description: The URL where the issue occurs (if applicable)
+      placeholder: https://example.com/page
 
   - type: textarea
     id: screenshots
     attributes:
-      label: Screenshots or Video
-      description: Drag and drop your visual evidence here.
+      label: Screenshots
+      description: If applicable, add screenshots to help explain your problem
+      placeholder: Drag and drop images here
+
+  - type: textarea
+    id: console-logs
+    attributes:
+      label: Console Logs
+      description: Please copy and paste any relevant console logs
+      render: javascript
 
   - type: dropdown
     id: impact
     attributes:
-      label: Visual Impact
+      label: User Impact
+      description: How severely does this impact users?
       options:
-        - Critical - UI is unusable
-        - High - Major element missing/broken
-        - Medium - Visual glitch / overlapping text
-        - Low - Minor alignment/styling issue
+        - Critical - Completely blocks usage
+        - High - Major functionality broken
+        - Medium - Partial functionality affected
+        - Low - Minor inconvenience
     validations:
       required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Add any other context about the problem here
