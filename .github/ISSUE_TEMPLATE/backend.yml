@@ -1,0 +1,90 @@
+name: ⚙️ Backend & Logic Bug Report
+description: Report API errors, Database issues, or Calculation discrepancies
+title: "[BACKEND]: "
+labels: ["type:bug", "area:backend", "area:logic"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # ⚙️ Devoscape Backend & Calculation Bug Report
+        Use this template for API failures, Prisma/Database errors, or **incorrect payroll calculations**.
+
+  - type: dropdown
+    id: logic_area
+    attributes:
+      label: Logic Area
+      description: Which part of the backend logic is failing?
+      options:
+        - Payroll Engine (EPF/ETF/Tax)
+        - Attendance & Penalties (Late/Absenteeism)
+        - OT Calculation
+        - Database Sync (SQLite <-> Postgres)
+        - Authentication & JWT
+        - File Generation (PDF Slips)
+    validations:
+      required: true
+
+  - type: input
+    id: endpoint
+    attributes:
+      label: API Endpoint / Function
+      description: The specific API route or shared logic function affected.
+      placeholder: e.g., POST /api/v1/payroll/calculate or calculateEtf()
+
+  - type: textarea
+    id: math-discrepancy
+    attributes:
+      label: Calculation Discrepancy (Critical)
+      description: If this is a payroll error, please show the math.
+      placeholder: |
+        Expected: Basic (50,000) + COLA (5,000) - EPF 8% (4,000) = 51,000
+        Actual: System calculated 52,500
+    validations:
+      required: false
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the technical failure or error message.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Run NestJS API in dev mode
+        2. Send a request to /payroll/process with the following payload...
+    validations:
+      required: true
+
+  - type: textarea
+    id: error-logs
+    attributes:
+      label: Server/Terminal Logs
+      description: Please paste the NestJS or Prisma error stack trace.
+      render: shell
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Data Severity
+      options:
+        - Critical - Data loss or Incorrect Financial Payout
+        - High - API endpoint is down (500 Error)
+        - Medium - Slow performance or non-critical logic error
+        - Low - Log warning or minor cleanup needed
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: database_env
+    attributes:
+      label: Database Environment
+      description: Where is the data failing?
+      options:
+        - label: Local SQLite (Desktop App)
+        - label: Cloud PostgreSQL (Web App)
+        - label: Syncing Process (Prisma)
