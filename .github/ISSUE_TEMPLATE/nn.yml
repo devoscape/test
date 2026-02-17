@@ -1,0 +1,98 @@
+name: 🚀 Feature Request
+description: Suggest a new idea or enhancement for the DevoPay ecosystem
+title: "[FEAT]: "
+labels: ["type: enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 💡 Devoscape Feature Request
+        Thank you for helping us evolve DevoPay! Use this form to propose new modules, 
+        UI improvements, or automated payroll rules.
+
+  - type: dropdown
+    id: application
+    attributes:
+      label: Target Application
+      description: Which part of the ecosystem does this feature belong to?
+      options:
+        - Admin Web Portal (Next.js)
+        - Desktop Application (Electron)
+        - Shared UI Component Library (@devopay/components)
+        - Shared Logic Engine (@devopay/logic)
+        - Database Schema (Drizzle)
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What pain point does this solve for HR managers or employees?
+      placeholder: e.g., "HR managers currently have to manually input Poya day OT..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: Describe how the feature should work.
+      placeholder: A clear and concise description of the new functionality.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: user_impact
+    attributes:
+      label: Business Value / User Impact
+      description: How much does this improve the payroll process?
+      options:
+        - High - Massive time saver or Critical Compliance feature
+        - Medium - Useful enhancement for daily operations
+        - Low - Minor UI/UX delight
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: architecture_impact
+    attributes:
+      label: Architectural Requirements
+      description: What needs to be touched to build this?
+      options:
+        - label: New API Endpoints (NestJS)
+        - label: Database Schema Changes (Drizzle)
+        - label: Local SQLite Storage Update (Electron)
+        - label: Shared Logic Update (EPF/ETF/OT Math)
+        - label: Frontend UI Components (React)
+
+  - type: textarea
+    id: user_flow
+    attributes:
+      label: User Workflow
+      description: Describe the step-by-step interaction.
+      placeholder: e.g., 1. User clicks 'Attendance' -> 2. Selects 'Bulk Gate Pass' -> 3. ...
+
+  - type: dropdown
+    id: offline_support
+    attributes:
+      label: Offline / Local-First Requirement
+      description: Does this feature need to work without internet in the Desktop App?
+      options:
+        - Yes - Must work 100% offline
+        - No - Cloud-only feature
+        - Hybrid - Partial offline support
+    validations:
+      required: true
+
+  - type: textarea
+    id: technical_details
+    attributes:
+      label: Technical Implementation Ideas
+      description: Mention specific libraries or patterns (e.g., shadcn/ui, Drizzle middleware).
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Attach screenshots, labor law documents, or mockups.
